@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1em 10em;
+}
+
+header div {
+  width: 30%;
+}
+
+header div p {
+  font-weight: bold;
+  margin: 0;
+  font-size: 20px;
+}
+
+header nav {
+  width: 70%;
+  text-align: right;
+}
+
+header nav a {
+  color: white;
+}
+
+.formulario{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  padding: 1em 0;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.formulario div input {
+  width: 60%;
+  padding: 1.5em 1em;
+  border: none;
+  background: rgba(128, 128, 128, 0.137);
+}
+.formulario div button {
+  width: 20%;
+}
+
+.lista{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* tarjeta styles */
+
+.padreTarjeta{
+  position: relative;
+  margin: 10px auto;
+  text-decoration: none;
+}
+
+.padreTarjeta:hover .muestra {
+  width: 50%;
+  height: 30vh;
+  visibility: visible;
+  transition: all .5s;
+  left: 0;
+  right: 0;
+  border-radius: 12px;
+  border: none;
+  background: rgba(0, 0, 0, 0.26);
+}
+
+
+.muestra{
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  backdrop-filter: blur(5px);
+
+}
+
+.muestra p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
