@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Buscador from './components/Buscador';
+import Footer from './components/Footer';
 import Header from './components/Header'
 import Lista from './components/Lista'
 
@@ -7,7 +8,7 @@ import Lista from './components/Lista'
 function App() {
 
   // datos del formulario
-  const [ datosform, datosFormulario ] = useState('')
+  const [ datosform, datosFormulario ] = useState('Republica Dominicana')
   // guardamos los resultados de la api
   const [ datosbusqueda, setDatosBusqueda ] = useState([])
 
@@ -21,9 +22,9 @@ function App() {
     // funcion para buscar api
     const buscarFotoAPI = async () => {
       // evitar que haga una consulta a la api
-      // if(datosform === '') return
+      if(datosform === '') return
 
-      const limiteFotos = 10 // limite de foros
+      const limiteFotos = 30 // limite de foros
       const key = '14627062-c54f3cc4d2d2be2769cccca0c' // mi api key
   
       // url de la api
@@ -121,9 +122,9 @@ function App() {
             </button>
           )
         }
-
-
         </div>
+
+        <Footer />
 
     </Fragment>
   );

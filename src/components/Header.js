@@ -5,11 +5,8 @@ const Header = () => {
         <Fragment>
             <header className='bg-dark'>
                 <div className="logo">
-                    <p>App Pixabay</p>
+                    <a href='/' >App Pixabay</a>
                 </div>
-                <nav>
-                    <a href="#!">Inicio</a>
-                </nav>
             </header>
         </Fragment>
      );
