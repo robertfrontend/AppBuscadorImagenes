@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -80,7 +81,7 @@ header div a {
   text-decoration: none;
 }
 
-.padreTarjeta:hover .muestra {
+.padreTarjeta:hover .muestra{
   width: 300px;
   height: 6vh;
   visibility: visible;
@@ -123,6 +124,29 @@ header div a {
   padding: 0;
 }
 
+.padreTarjeta:hover .otrapage {
+  visibility: visible;
+  width: auto;
+  backdrop-filter: blur(5px);
+
+}
+
+.otrapage{
+  visibility: hidden;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 0%;
+  text-align: right;
+}
+.otrapage a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em;
+  background: #3498dbc4;
+  border-radius: 5px;
+}
+
 /* media tablet */
 @media (max-width:698px) {
   /* formulario */
@@ -148,6 +172,16 @@ header div a {
 
   .padreTarjeta img{
     width: 100%;
+  }
+
+  .muestra div {
+    font-size: 16px;
+  }
+
+  .muestra img {
+    width: 16px;
+    margin: 0;
+    padding: 0;
   }
 
 }

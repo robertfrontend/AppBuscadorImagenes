@@ -18,9 +18,7 @@ const Tarjeta = ( {images} ) => {
 
     return ( 
         <Fragment>
-            <a href={largeImageURL}
-                target='_blank'
-                rel='noopener noreferrer'
+            <div
                 width={webformatWidth} 
                 height={webformatHeight}
                 className='padreTarjeta'
@@ -31,6 +29,17 @@ const Tarjeta = ( {images} ) => {
                     src={largeImageURL} 
                     alt={tags} 
                 />
+
+                {/* ver imagen completa */}
+                <div className="otrapage">
+                    <a href={largeImageURL} 
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
+                        Full Width &uarr;
+                    </a>
+                </div>
+                {/* mostrar los likes, comentarios, etc */}
                 <div className="muestra">
                     <div>
                         <img src={like} alt="" />
@@ -45,7 +54,7 @@ const Tarjeta = ( {images} ) => {
                         <span> {Intl.NumberFormat("de-DE").format(views)}</span>
                     </div>
                 </div>
-            </a>
+            </div>
         </Fragment>
      );
 }

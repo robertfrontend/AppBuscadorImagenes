@@ -5,8 +5,10 @@ const Footer = () => {
     return ( 
         <Fragment>
             <footer className='text-center'>
-                <h3>Creado por <a href="https://robertrm0.github.io/">Robertrm0</a> con ❤
-                </h3>
+                <p>
+                    Creado por <a href="https://robertrm0.github.io/">Robertrm0</a> con ❤.
+                    Repositorio <a href="https://github.com/robertrm0/AppBuscadorImagenes">Aqui</a>
+                </p>
             </footer>
         </Fragment>
      );
