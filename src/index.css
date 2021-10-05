@@ -55,12 +55,12 @@ header div a {
   align-items: center;
 }
 
-.formulario div input {
+/* .formulario div input {
   width: 60%;
   padding: 1.5em 1em;
   border: none;
   background: rgba(128, 128, 128, 0.137);
-}
+} */
 .formulario div button {
   width: 20%;
 }
