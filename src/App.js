@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
+import styled from "styled-components";
+
 import Buscador from "./components/Buscador";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -13,7 +15,7 @@ function App() {
   // state pages
   const [paginaactual, guardarPaginaActual] = useState(1);
   const [totalpaginas, saveTotalPages] = useState(5);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(50);
   const [isloading, setLoading] = useState(false);
 
   // useeffect para api
@@ -46,8 +48,8 @@ function App() {
     saveTotalPages(calculatePages);
 
     // mover la pantalla hacia arriba
-    const form = document.querySelector(".formulario");
-    form.scrollIntoView({ behavior: "smooth" });
+    // const form = document.querySelector(".formulario");
+    // form.scrollIntoView({ behavior: "smooth" });
     setLoading(false);
   };
 
@@ -79,7 +81,7 @@ function App() {
   const dtsTitulo = datosform;
 
   return (
-    <Fragment>
+    <>
       <Header />
 
       {/* obtenemos los datos del formulario */}
@@ -126,8 +128,36 @@ function App() {
       </div>
 
       <Footer />
-    </Fragment>
+    </>
   );
 }
+
+const ContentSearch = styled.div`
+  width: 100%;
+  height: 60vh;
+  background: url("https://picsum.photos/2000");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  .ses {
+    width: inherit;
+    height: inherit;
+    background-color: #00000063;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .content {
+      width: 40%;
+      text-align: center;
+      input {
+        width: 80%;
+        height: 6vh;
+        font-size: 1.2em;
+        margin: 0 auto;
+      }
+    }
+  }
+`;
 
 export default App;

@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import Tarjeta from "./Tarjeta";
 
@@ -7,54 +8,49 @@ const List = ({ datosbusqueda, busqueda }) => {
 
   return (
     <>
-      <h4 className="text-center pb-5">
-        {" "}
-        Resultado:
-        <span className="text-primary"> {busqueda} </span>
-      </h4>
-
-      {/* iteramos el resultado */}
-      <div>
-        <ListDad>
-          <ul>
-            {datosbusqueda.map((images, index) => (
-              <li key={index} onClick={() => handleSelect(images, index)}>
-                <img src={images.largeImageURL} alt="" className="li_image" />
-                <div className="view">
-                  <div>
-                    <span>
-                      {" "}
-                      <i className="fas fa-thumbs-up"></i>
-                      {Intl.NumberFormat("de-DE").format(images.likes)}
-                    </span>
-                  </div>
-                  <div>
-                    <span>
-                      {" "}
-                      <i className="fas fa-comment"></i>
-                      {Intl.NumberFormat("de-DE").format(images.comments)}
-                    </span>
-                  </div>
-                  <div>
-                    <span>
-                      {" "}
-                      <i className="fas fa-eye"></i>
-                      {Intl.NumberFormat("de-DE").format(images.views)}
-                    </span>
-                  </div>
+      <ListDad>
+        <ul>
+          {datosbusqueda.map((image, index) => (
+            <li key={index} onClick={() => handleSelect(image, index)}>
+              <LazyLoadImage
+                src={image.largeImageURL} // use normal <img> attributes as props
+                className="li_image"
+              />
+              {/* <img src={image.largeImageURL} alt="" className="li_image" /> */}
+              <div className="view">
+                <div>
+                  <span>
+                    {" "}
+                    <i className="fas fa-thumbs-up"></i>
+                    {Intl.NumberFormat("de-DE").format(image.likes)}
+                  </span>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </ListDad>
-      </div>
+                <div>
+                  <span>
+                    {" "}
+                    <i className="fas fa-comment"></i>
+                    {Intl.NumberFormat("de-DE").format(image.comments)}
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    {" "}
+                    <i className="fas fa-eye"></i>
+                    {Intl.NumberFormat("de-DE").format(image.views)}
+                  </span>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </ListDad>
     </>
   );
 };
 
 const ListDad = styled.div`
   width: 100%;
-  overflow-x: hidden;
+  overflow-y: hidden;
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -65,8 +61,8 @@ const ListDad = styled.div`
   li {
     height: 250px;
     flex-grow: 1;
-    padding: 0 !important;
     position: relative;
+    margin: 1em;
   }
 
   li:hover {
@@ -90,24 +86,20 @@ const ListDad = styled.div`
     }
   }
   .view {
-    visibility: hidden;
     position: absolute;
-    bottom: 0;
+    bottom: -2em;
     left: auto;
     right: auto;
     width: 100%;
-    background-color: #ffffff55;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
-
+    transition: all 0.2s;
     div {
       padding: 0.5em;
-      color: white;
+      color: transparent;
       i {
-        color: #ffffffa6;
         padding: 0.2em;
       }
       margin: 0 1em;
@@ -116,7 +108,11 @@ const ListDad = styled.div`
 
   li:hover {
     .view {
-      visibility: visible;
+      bottom: 0em;
+      background-color: #00000030;
+      div {
+        color: white;
+      }
     }
   }
 `;
